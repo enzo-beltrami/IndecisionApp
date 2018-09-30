@@ -1,12 +1,9 @@
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
 const path = require("path");
 const publicFolder = path.join(__dirname, "public");
 
-module.exports = {
-  entry: "./src/app.js",
-  output: {
-    path: publicFolder,
-    filename: "bundle.js"
-  },
+module.exports = merge(common, {
   module: {
     rules: [
       {
@@ -24,4 +21,4 @@ module.exports = {
   devServer: {
     contentBase: publicFolder
   }
-};
+});
